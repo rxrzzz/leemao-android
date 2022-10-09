@@ -1,15 +1,11 @@
-import reactLogo from "./assets/react.svg";
 import "./App.css";
+import { Navbar } from "./components/Navbar";
 
 function App() {
   return (
-    <div className="App">
-      <p className="text-3xl text-purple-700">Bruh</p>
-      <div>
-        <img src="/vite.svg" className="logo" alt="Vite logo" />
-        <img src={reactLogo} className="logo react" alt="React logo" />
-      </div>
-    </div>
+    <>
+      <Navbar />
+    </>
   );
 }
 
