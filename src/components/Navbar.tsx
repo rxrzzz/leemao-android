@@ -8,19 +8,19 @@ export const Navbar = () => {
         <div className="text-white [&>a]:mx-6 ">
           <a
             href="/"
-            className="hover:text-[#FFD65B] transition-colors duration-300"
+            className="hover:text-tertiary transition-colors duration-300"
           >
             Shops
           </a>
           <a
             href="/"
-            className="hover:text-[#FFD65B] transition-colors duration-300"
+            className="hover:text-tertiary transition-colors duration-300"
           >
             Contact Us
           </a>
           <a
             href="/"
-            className="bg-[#00DAB0] text-black p-2 rounded-sm hover:bg-[#FFD65B] transition-colors duration-300"
+            className="bg-primary text-black p-2 rounded-sm hover:bg-tertiary transition-colors duration-300"
           >
             Try It For Free
           </a>
