@@ -1,7 +1,7 @@
 export const Navbar = () => {
   return (
     <header>
-      <nav className="flex items-center w-11/12 mx-auto justify-between pt-4 text-lg">
+      <nav className="flex items-center justify-between pt-4 text-lg">
         <a href="/">
           <img src="/leemaologo.png" alt="Nav" className="w-9/12" />
         </a>
