@@ -1,7 +1,7 @@
 export const Footer = () => {
   return (
-    <main className="xl:my-52 lg:mt-40  mt-32 text-white flex justify-between">
-      <section className="w-1/2">
+    <main className="xl:my-52 lg:mt-40  mt-32 text-white flex justify-between flex-wrap">
+      <section className="w-full md:w-1/2 mb-6">
         <h1 className="xl:text-8xl lg:text-7xl text-5xl mb-4 font-extrabold break-normal">
           More fun<span className="text-gradient block">more chat.</span>
         </h1>
@@ -22,7 +22,7 @@ export const Footer = () => {
           </a>
         </div>
       </section>
-      <aside className="w-1/2 [&>*]:my-6 [&>*]:block [&>*]:ml-8 [&>a]:text-lg">
+      <aside className="md:w-1/2 w-full [&>*]:my-6 [&>*]:block [&>*]:md:ml-8 [&>a]:text-lg">
         <h1 className="text-3xl font-extrabold">Quick Links</h1>
 
         <a href="/">Shops</a>
