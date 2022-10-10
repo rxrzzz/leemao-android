@@ -4,6 +4,6 @@
 
 @layer components {
   .text-gradient {
-    @apply text-transparent bg-clip-text bg-gradient-to-br from-primary to-secondary leading-loose;
+    @apply text-transparent bg-clip-text bg-gradient-to-br from-primary to-secondary;
   }
 }

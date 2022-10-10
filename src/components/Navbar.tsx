@@ -1,11 +1,11 @@
 export const Navbar = () => {
   return (
     <header>
-      <nav className="flex items-center justify-between pt-4 text-lg">
+      <nav className="flex items-center justify-between pt-8 text-lg">
         <a href="/">
           <img src="/leemaologo.png" alt="Nav" className="w-9/12" />
         </a>
-        <div className="text-white [&>a]:mx-6 ">
+        <div className="text-white [&>a]:mx-6 lg:block hidden">
           <a
             href="/"
             className="hover:text-tertiary transition-colors duration-300"
