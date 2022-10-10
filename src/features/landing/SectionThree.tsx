@@ -1,6 +1,6 @@
 export const SectionThree = () => {
   return (
-    <section className="xl:mt-52 lg:mt-40  mt-32 text-white">
+    <section className="xl:mt-64 lg:mt-40 mt-32 text-white">
       <h1 className="xl:text-8xl lg:text-7xl text-5xl font-extrabold break-normal">
         <span className="text-gradient block">Curate</span>treasured memes.
       </h1>

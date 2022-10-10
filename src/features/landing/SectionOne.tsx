@@ -1,6 +1,6 @@
 export const SectionOne = () => {
   return (
-    <section className="xl:mt-52 lg:mt-40 mt-32">
+    <section className="xl:mt-64 lg:mt-40 mt-32">
       <h1 className="xl:text-8xl lg:text-7xl text-5xl font-extrabold text-gradient break-words">
         Bring More Fun To Your Conversations
       </h1>
