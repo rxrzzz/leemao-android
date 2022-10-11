@@ -10,16 +10,15 @@ function App() {
   return (
     <div className="w-full">
       <div className="flex">
-        <div className="w-full lg:w-7/12 mx-6">
-
+        <div className="w-full lg:w-7/12 mx-6 md:mx-12 lg:mx-14 xl:mx-28">
           <Navbar />
           <SectionOne />
           <SectionTwo />
           <SectionThree />
           <SectionFour />
         </div>
-        <div className="hidden lg:block w-5/12">
-          <img src="/grid1.svg" alt="#" className="sticky top-0 right-0 w-full" />
+        <div className="hidden lg:block w-5/12 h-screen  sticky top-0 right-0">
+          <img src="/grid1.png" alt="#" className="  h-screen object-cover" />
         </div>
       </div>
       <Footer />

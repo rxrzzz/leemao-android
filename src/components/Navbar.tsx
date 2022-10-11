@@ -5,7 +5,7 @@ export const Navbar = () => {
         <a href="/">
           <img src="/leemaologo.png" alt="Nav" className="w-9/12" />
         </a>
-        <div className="text-white [&>a]:mx-6 lg:block hidden">
+        <div className="text-white [&>a]:mx-6 xl:block hidden">
           <a
             href="/"
             className="hover:text-tertiary transition-colors duration-300"
