@@ -1,29 +1,72 @@
+import TextTransition, { presets } from "react-text-transition";
+import React, { useEffect, useState } from "react";
+const headerText = [
+  "Bring More Fun To Your Conversations",
+  "Make",
+  "Curate",
+  "No type",
+];
+const middleText = [
+  "",
+  " worthy memes     ",
+  "treasured memes",
+  "share\nmemes",
+];
+const bottomTextOne = [
+  "Leemao helps you save your favourite and most used meme.",
+  "Personalise your meme experience by creating your",
+  "Leemao helps you save your favourite and most used meme.",
+  "Lemao supports all your social and messaging platforms,",
+];
+const bottomTextTwo = [
+  " Why scroll endlessly when it's by the corner!",
+  "best meme moment, customize it, and make it yours.",
+  " why scroll endlessly when it's by the corner!",
+  "share your meme across multiple media, type less meme more.",
+];
+
 export const SectionOne = () => {
+  const [index, setIndex] = useState(0);
+  useEffect(() => {
+    const intervalId = setInterval(() => setIndex((index) => index + 1), 5000);
+    return () => clearTimeout(intervalId);
+  }, []);
+
   return (
-    <section className="xl:mt-64 lg:mt-40 mt-32">
-      <h1 className="xl:text-8xl lg:text-7xl md:text-6xl text-5xl font-extrabold text-gradient break-words">
-        Bring More Fun To Your Conversations
-      </h1>
-      <p className="xl:text-3xl lg:text-2xl md:text-xl text-white my-4">
-        Leemao helps you save your favourite and most used meme. Why scroll
-        endlessly when it&apos;s by the corner!
-      </p>
-      <div className="flex">
-        <a href="/" className="lg:mr-4 -mr-4">
-          <img
-            src="/appstore.png"
-            alt="Download Leemao On The App Store"
-            className="w-10/12 lg:w-full"
-          />
-        </a>
-        <a href="/">
-          <img
-            src="/googleplay.png"
-            className="w-10/12 lg:w-full"
-            alt="Download Leemao On Google Play Store"
-          />
-        </a>
+    <section className="xl:mt-50 lg:mt-40 mt-32">
+      <div className="leading max-w-2xl">
+        <TextTransition direction="down" springConfig={presets.wobbly} >
+          <h1 className="xl:text-8xl lg:text-7xl md:text-6xl text-4xl  text-white font-extrabold">
+            <span className=" text-gradient block leading-tight">
+              {headerText[index % headerText.length]}
+            </span>
+            <span className="block">
+              {middleText[index % middleText.length]}
+            </span>
+          </h1>
+          <h1 className="lg:text-2xl md:text-xl text-md my-8 text-white">
+            <span>{bottomTextOne[index % bottomTextOne.length]}</span>
+            <span>{bottomTextTwo[index % bottomTextTwo.length]}</span>
+          </h1>
+          <div className="flex">
+            <a href="/" className="lg:mr-4 -mr-4">
+              <img
+                src="/appstore.png"
+                alt="Download Leemao On The App Store"
+                className="w-10/12 lg:w-full"
+              />
+            </a>
+            <a href="/">
+              <img
+                src="/googleplay.png"
+                className="w-10/12 lg:w-full"
+                alt="Download Leemao On Google Play Store"
+              />
+            </a>
+          </div>
+        </TextTransition>
       </div>
+      <div className="flex"></div>
     </section>
   );
 };
