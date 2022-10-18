@@ -10,32 +10,36 @@ export const Image = ({ alt, className, src }: ImageProps) => {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
-  if (isLoading && isError) {
-    return (
+  if (isLoading === true && isError !== true) {
+    <div>
       <img
         alt={alt}
         style={{
           border: "2px solid purple",
           width: "100%",
+          height: "100%",
+          padding: "2rem",
           marginBlock: "2rem",
         }}
         src="/leemaologo.png"
       />
-    );
+      ;
+    </div>;
   }
-  if (!isLoading && isError) {
+
+  if (isError === true) {
     return (
-      <div className="flex items-center justify-center flex-col">
-      <img
-        alt={alt}
-        style={{
-          border: "2px solid purple",
-          width: "100%",
-          marginBlock: "2rem",
-        }}
-        src="/leemaologo.png"
-      />
-      <p>An error occured.</p>
+      <div className="w-full border h-auto ">
+        <img
+          alt={alt}
+          style={{
+            border: "2px solid purple",
+            width: "100%",
+            marginBlock: "2rem",
+            padding: "2rem",
+          }}
+          src="/leemaologo.png"
+        />
       </div>
     );
   }
