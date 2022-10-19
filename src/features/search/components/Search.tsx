@@ -27,7 +27,6 @@ export const Search = () => {
   };
 
   const handleImageMenuClose = (index: number) => {
-
     if (isOpen === true) {
       imageRefs && imageRefs[index].current?.classList.add("hidden");
       setIsOpen(false);
@@ -42,8 +41,7 @@ export const Search = () => {
       const memeRefs = memes && memes.map(() => createRef<HTMLDivElement>());
       setImageRefs(memeRefs);
     }
-  }, [searchTerm, defaultMemes, memes]);
-
+  }, [searchTerm, memes]);
 
   useMemo(() => {
     const matchingMemes =
@@ -66,13 +64,24 @@ export const Search = () => {
           <a href="/">
             <img src="/leemaologo.png" alt="Home" width="120px" />
           </a>
-          <input
-            type="text"
-            placeholder="Search meme, gif"
-            className=" placeholder:text-white text-white font-thin
-             bg-[#1E201E] min-w-[400px] p-2 rounded-sm "
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
+          <div
+            className=" flex items-center p-2 rounded-md
+          bg-[#1E201E] pointer-events-none focus-within:bg-[#828482]"
+          >
+            <div
+              className="w-[20px] h-[20px] bg-[url('/searchdefault.png')]
+             "
+            ></div>
+            <input
+              type="text"
+              placeholder="Search meme, gif"
+              className=" placeholder:text-white text-white font-thin bg-[#1E201E]
+              focus:bg-[#828482] peer-focus:bg-[url('/searchfocus.png')]
+              md:min-w-[400px] rounded-sm ml-3 focus:outline-none pointer-events-auto"
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
+
           <button
             className="border border-primary py-2 px-6
            rounded-md text-primary"
@@ -148,7 +157,10 @@ export const Search = () => {
                   memes.map((meme, index) => (
                     <Fragment key={meme.url}>
                       <div className="p-4">
-                        <button onClick={() => handleImageMenuOpen(index)} className="h-full w-full">
+                        <button
+                          onClick={() => handleImageMenuOpen(index)}
+                          className="h-full w-full"
+                        >
                           <Image
                             alt={meme.tags[0]}
                             className="rounded-md"
