@@ -1,5 +1,4 @@
 import { SingleMeme, useMemes } from "../api/useMemes";
-import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import React, {
   createRef,
   Fragment,
@@ -14,8 +13,6 @@ export const Search = () => {
   const { memes: data } = useMemes();
   const [searchTerm, setSearchTerm] = useState("");
   const [isOpen, setIsOpen] = useState(false);
-  const height = window.innerHeight;
-  console.log(height);
   const [imageRefs, setImageRefs] = useState<
     RefObject<HTMLDivElement>[] | null
   >();
@@ -92,86 +89,98 @@ export const Search = () => {
       ) : (
         <div className="bg-[#010401] min-h-screen">
           {searchTerm === "" ? (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 relative">
-              {defaultMemes &&
-                defaultMemes.map((meme, index) => (
-                  <Fragment key={meme.url}>
-                    <div className="p-4">
-                      <button onClick={() => handleImageMenuOpen(index)}>
-                        <Image
-                          alt={meme.tags[0]}
-                          className="rounded-md"
-                          src={meme.url}
-                        />
-                      </button>
-                    </div>
-                    <div
-                      ref={imageRefs && imageRefs[index]}
-                      className=" w-10/12 max-w-[400px] rounded-md fixed top-[40%]
-                       left-1/2 md:h-[500px] transform -translate-x-1/2 hidden
-                       -translate-y-1/2 z-10 bg-[#333] h-3/6 backdrop:opacity-80"
-                    >
-                      <div className="w-11/12 mx-auto flex flex-col">
-                        <button
-                          className="mt-4  self-end"
-                          onClick={() => handleImageMenuClose(index)}
-                        >
-                          <img src="/close.svg" alt="Close" className="w-5" />
-                        </button>
-                        <img
-                          src={meme.url}
-                          alt={meme.tags[0]}
-                          className="rounded-md mt-4"
-                        />
-                        <button className="bg-primary mt-4 py-1 rounded-md">
-                          Download
+            <>
+            <br />
+              <div
+                className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4
+             xl:grid-cols-5 relative gap-5 mx-12"
+              >
+                {defaultMemes &&
+                  defaultMemes.map((meme, index) => (
+                    <Fragment key={meme.url}>
+                      <div className="p-4">
+                        <button onClick={() => handleImageMenuOpen(index)}>
+                          <Image
+                            alt={meme.tags[0]}
+                            className="rounded-md"
+                            src={meme.url}
+                          />
                         </button>
                       </div>
-                    </div>
-                  </Fragment>
-                ))}
-            </div>
+                      <div
+                        ref={imageRefs && imageRefs[index]}
+                        className=" w-10/12 max-w-[400px] rounded-md fixed top-[40%]
+                       left-1/2 md:h-[500px] transform -translate-x-1/2 hidden
+                       -translate-y-1/2 z-10 bg-[#333] h-3/6 backdrop:opacity-80"
+                      >
+                        <div className="w-11/12 mx-auto flex flex-col">
+                          <button
+                            className="mt-4  self-end"
+                            onClick={() => handleImageMenuClose(index)}
+                          >
+                            <img src="/close.svg" alt="Close" className="w-5" />
+                          </button>
+                          <img
+                            src={meme.url}
+                            alt={meme.tags[0]}
+                            className="rounded-md mt-4"
+                          />
+                          <button className="bg-primary mt-4 py-1 rounded-md">
+                            Download
+                          </button>
+                        </div>
+                      </div>
+                    </Fragment>
+                  ))}
+              </div>
+            </>
           ) : (
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 relative">
-              {memes &&
-                typeof memes !== "string" &&
-                memes.map((meme, index) => (
-                  <Fragment key={meme.url}>
-                    <div className="p-4">
-                      <button onClick={() => handleImageMenuOpen(index)}>
-                        <Image
-                          alt={meme.tags[0]}
-                          className="rounded-md"
-                          src={meme.url}
-                        />
-                      </button>
-                    </div>
-                    <div
-                      ref={imageRefs && imageRefs[index]}
-                      className=" w-10/12 max-w-[400px] rounded-md fixed top-[40%]
-                       left-1/2 md:h-[500px] transform -translate-x-1/2 hidden
-                       -translate-y-1/2 z-10 bg-[#333] h-3/6 backdrop:opacity-80"
-                    >
-                      <div className="w-11/12 mx-auto flex flex-col">
-                        <button
-                          className="mt-4  self-end"
-                          onClick={() => handleImageMenuClose(index)}
-                        >
-                          <img src="/close.svg" alt="Close" className="w-5" />
-                        </button>
-                        <img
-                          src={meme.url}
-                          alt={meme.tags[0]}
-                          className="rounded-md mt-4"
-                        />
-                        <button className="bg-primary mt-4 py-1 rounded-md">
-                          Download
+            <>
+              <br />
+              <div
+                className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5
+             relative  gap-5 mx-12"
+              >
+                {memes &&
+                  typeof memes !== "string" &&
+                  memes.map((meme, index) => (
+                    <Fragment key={meme.url}>
+                      <div className="">
+                        <button onClick={() => handleImageMenuOpen(index)}>
+                          <Image
+                            alt={meme.tags[0]}
+                            className="rounded-md"
+                            src={meme.url}
+                          />
                         </button>
                       </div>
-                    </div>
-                  </Fragment>
-                ))}
-            </div>
+                      <div
+                        ref={imageRefs && imageRefs[index]}
+                        className=" w-10/12 max-w-[400px] rounded-md fixed top-[40%]
+                       left-1/2 md:h-[500px] transform -translate-x-1/2 hidden
+                       -translate-y-1/2 z-10 bg-[#333] h-3/6 backdrop:opacity-80 "
+                      >
+                        <div className="w-11/12 mx-auto flex flex-col">
+                          <button
+                            className="mt-4  self-end"
+                            onClick={() => handleImageMenuClose(index)}
+                          >
+                            <img src="/close.svg" alt="Close" className="w-5" />
+                          </button>
+                          <img
+                            src={meme.url}
+                            alt={meme.tags[0]}
+                            className="rounded-md mt-4"
+                          />
+                          <button className="bg-primary mt-4 py-1 rounded-md">
+                            Download
+                          </button>
+                        </div>
+                      </div>
+                    </Fragment>
+                  ))}
+              </div>
+            </>
           )}
         </div>
       )}
