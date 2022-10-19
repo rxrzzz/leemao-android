@@ -41,7 +41,7 @@ export const Search = () => {
       const memeRefs = memes && memes.map(() => createRef<HTMLDivElement>());
       setImageRefs(memeRefs);
     }
-  }, [searchTerm, memes]);
+  }, [searchTerm, data]);
 
   useMemo(() => {
     const matchingMemes =

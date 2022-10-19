@@ -29,10 +29,18 @@ export const Image = ({ alt, className, src }: ImageProps) => {
 
   if (isError === true) {
     return (
-      <div className="rounded-md shadow-sm shadow-slate-800 h-full w-full flex flex-col justify-center items-center bg-[#131613]">
-        <img src="/errormoon.png" alt="" className=" shadow-md  rounded-full  shadow-gray-400"/>
-        <p className="w-9/12 mx-auto mt-2 text-gray-300 font-medium">There was an error loading this image.</p>
-
+      <div
+        className="rounded-md shadow-sm shadow-slate-800 h-full
+       w-full flex flex-col justify-center items-center bg-[#131613]"
+      >
+        <img
+          src="/errormoon.png"
+          alt=""
+          className=" shadow-md  rounded-full  shadow-gray-400"
+        />
+        <p className="w-9/12 mx-auto mt-2 text-gray-300 font-medium">
+          There was an error loading this image.
+        </p>
       </div>
     );
   }
