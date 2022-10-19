@@ -27,6 +27,7 @@ export const Search = () => {
   };
 
   const handleImageMenuClose = (index: number) => {
+
     if (isOpen === true) {
       imageRefs && imageRefs[index].current?.classList.add("hidden");
       setIsOpen(false);
@@ -41,7 +42,8 @@ export const Search = () => {
       const memeRefs = memes && memes.map(() => createRef<HTMLDivElement>());
       setImageRefs(memeRefs);
     }
-  }, [searchTerm]);
+  }, [searchTerm, defaultMemes, memes]);
+
 
   useMemo(() => {
     const matchingMemes =
@@ -90,7 +92,7 @@ export const Search = () => {
         <div className="bg-[#010401] min-h-screen">
           {searchTerm === "" ? (
             <>
-            <br />
+              <br />
               <div
                 className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4
              xl:grid-cols-5 relative gap-5 mx-12"
