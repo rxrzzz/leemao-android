@@ -147,8 +147,8 @@ export const Search = () => {
                   typeof memes !== "string" &&
                   memes.map((meme, index) => (
                     <Fragment key={meme.url}>
-                      <div className="">
-                        <button onClick={() => handleImageMenuOpen(index)}>
+                      <div className="p-4">
+                        <button onClick={() => handleImageMenuOpen(index)} className="h-full w-full">
                           <Image
                             alt={meme.tags[0]}
                             className="rounded-md"
