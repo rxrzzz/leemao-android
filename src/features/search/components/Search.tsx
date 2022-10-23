@@ -1,4 +1,5 @@
 import { SingleMeme, useMemes } from "../api/useMemes";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import React, {
   createRef,
   Fragment,
@@ -50,6 +51,7 @@ export const Search = () => {
         (meme) =>
           meme.tags
             .map((meme) => meme.toLowerCase())
+            .join(" ")
             .includes(searchTerm.toLowerCase()) ||
           meme.title.toLowerCase() === searchTerm.toLowerCase()
       );
@@ -102,64 +104,84 @@ export const Search = () => {
           {searchTerm === "" ? (
             <>
               <br />
-              <div
-                className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4
-             xl:grid-cols-5 relative gap-5 mx-12"
+              <ResponsiveMasonry
+                className="mx-8"
+                columnsCountBreakPoints={{
+                  400: 2,
+                  750: 3,
+                  1000: 4,
+                  1200: 6,
+                }}
               >
-                {defaultMemes &&
-                  defaultMemes.map((meme, index) => (
-                    <Fragment key={meme.url}>
-                      <div className="p-4">
-                        <button onClick={() => handleImageMenuOpen(index)}>
+                <Masonry>
+                  {defaultMemes &&
+                    defaultMemes.map((meme, index) => (
+                      <Fragment key={meme.url}>
+                        <button
+                          onClick={() => handleImageMenuOpen(index)}
+                          className="p-2"
+                        >
                           <Image
                             alt={meme.tags[0]}
-                            className="rounded-md"
+                            className="rounded-sm"
                             src={meme.url}
                           />
                         </button>
-                      </div>
-                      <div
-                        ref={imageRefs && imageRefs[index]}
-                        className=" w-10/12 max-w-[400px] rounded-md fixed top-[40%]
+                        <div
+                          ref={imageRefs && imageRefs[index]}
+                          className=" w-10/12 max-w-[400px] rounded-md fixed top-[40%]
                        left-1/2 md:h-[500px] transform -translate-x-1/2 hidden
                        -translate-y-1/2 z-10 bg-[#333] h-3/6 backdrop:opacity-80"
-                      >
-                        <div className="w-11/12 mx-auto flex flex-col">
-                          <button
-                            className="mt-4  self-end"
-                            onClick={() => handleImageMenuClose(index)}
-                          >
-                            <img src="/close.svg" alt="Close" className="w-5" />
-                          </button>
-                          <img
-                            src={meme.url}
-                            alt={meme.tags[0]}
-                            className="rounded-md mt-4"
-                          />
-                          <button className="bg-primary mt-4 py-1 rounded-md">
-                            Download
-                          </button>
+                        >
+                          <div className="w-11/12 mx-auto flex flex-col">
+                            <button
+                              className="mt-4  self-end"
+                              onClick={() => handleImageMenuClose(index)}
+                            >
+                              <img
+                                src="/close.svg"
+                                alt="Close"
+                                className="w-5"
+                              />
+                            </button>
+                            <img
+                              src={meme.url}
+                              alt={meme.tags[0]}
+                              className="rounded-md mt-4"
+                            />
+                            <button className="bg-primary mt-4 py-1 rounded-md">
+                              Download
+                            </button>
+                          </div>
                         </div>
-                      </div>
-                    </Fragment>
-                  ))}
-              </div>
+                      </Fragment>
+                    ))}
+                </Masonry>
+              </ResponsiveMasonry>
             </>
           ) : (
             <>
               <br />
-              <div
-                className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5
-             relative  gap-5 mx-12"
+
+              <ResponsiveMasonry
+                className="mx-8"
+                columnsCountBreakPoints={{
+                  400: 2,
+                  750: 3,
+                  800: 3,
+                  1000: 4,
+                  1400: 5,
+                  1800: 6,
+                }}
               >
-                {memes &&
-                  typeof memes !== "string" &&
-                  memes.map((meme, index) => (
-                    <Fragment key={meme.url}>
-                      <div className="p-4">
+                <Masonry>
+                  {memes &&
+                    typeof memes !== "string" &&
+                    memes.map((meme, index) => (
+                      <Fragment key={meme.url}>
                         <button
                           onClick={() => handleImageMenuOpen(index)}
-                          className="h-full w-full"
+                          className="h-full w-full p-2"
                         >
                           <Image
                             alt={meme.tags[0]}
@@ -167,33 +189,37 @@ export const Search = () => {
                             src={meme.url}
                           />
                         </button>
-                      </div>
-                      <div
-                        ref={imageRefs && imageRefs[index]}
-                        className=" w-10/12 max-w-[400px] rounded-md fixed top-[40%]
+                        <div
+                          ref={imageRefs && imageRefs[index]}
+                          className=" w-10/12 max-w-[400px] rounded-md fixed top-[40%]
                        left-1/2 md:h-[500px] transform -translate-x-1/2 hidden
                        -translate-y-1/2 z-10 bg-[#333] h-3/6 backdrop:opacity-80 "
-                      >
-                        <div className="w-11/12 mx-auto flex flex-col">
-                          <button
-                            className="mt-4  self-end"
-                            onClick={() => handleImageMenuClose(index)}
-                          >
-                            <img src="/close.svg" alt="Close" className="w-5" />
-                          </button>
-                          <img
-                            src={meme.url}
-                            alt={meme.tags[0]}
-                            className="rounded-md mt-4"
-                          />
-                          <button className="bg-primary mt-4 py-1 rounded-md">
-                            Download
-                          </button>
+                        >
+                          <div className="w-11/12 mx-auto flex flex-col">
+                            <button
+                              className="mt-4  self-end"
+                              onClick={() => handleImageMenuClose(index)}
+                            >
+                              <img
+                                src="/close.svg"
+                                alt="Close"
+                                className="w-5"
+                              />
+                            </button>
+                            <img
+                              src={meme.url}
+                              alt={meme.tags[0]}
+                              className="rounded-md mt-4"
+                            />
+                            <button className="bg-primary mt-4 py-1 rounded-md">
+                              Download
+                            </button>
+                          </div>
                         </div>
-                      </div>
-                    </Fragment>
-                  ))}
-              </div>
+                      </Fragment>
+                    ))}
+                </Masonry>
+              </ResponsiveMasonry>
             </>
           )}
         </div>

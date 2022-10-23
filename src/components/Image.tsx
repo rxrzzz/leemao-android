@@ -11,19 +11,18 @@ export const Image = ({ alt, className, src }: ImageProps) => {
   const [isError, setIsError] = useState(false);
 
   if (isLoading === true && isError !== true) {
-    <div>
+    <div
+      className="rounded-md shadow-sm shadow-slate-800 h-full
+   w-full flex flex-col justify-center items-center bg-[#131613] py-5"
+    >
       <img
-        alt={alt}
-        style={{
-          border: "2px solid purple",
-          width: "100%",
-          height: "100%",
-          padding: "2rem",
-          marginBlock: "2rem",
-        }}
-        src="/leemaologo.png"
+        src="/errormoon.png"
+        alt=""
+        className=" shadow-md  rounded-full  shadow-gray-400"
       />
-      ;
+      <p className="w-9/12 mx-auto mt-2 text-gray-300 font-medium">
+        Image is loading...
+      </p>
     </div>;
   }
 
@@ -31,7 +30,7 @@ export const Image = ({ alt, className, src }: ImageProps) => {
     return (
       <div
         className="rounded-md shadow-sm shadow-slate-800 h-full
-       w-full flex flex-col justify-center items-center bg-[#131613]"
+       w-full flex flex-col justify-center items-center bg-[#131613] py-48"
       >
         <img
           src="/errormoon.png"
