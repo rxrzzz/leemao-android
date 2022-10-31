@@ -15,7 +15,7 @@ export const Landing = () => {
           <img src="/grid1.png" alt="#" className="  h-screen object-cover" />
         </div>
       </div>
-      <footer className="mx-6 md:mx-12 lg:mx-14 xl:mx-28">
+      <footer className="mx-6 md:mx-12 lg:mx-14 xl:mx-28 hidden lg:block">
         <Footer />
       </footer>
     </div>

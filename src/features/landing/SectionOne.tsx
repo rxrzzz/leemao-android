@@ -37,7 +37,7 @@ export const SectionOne = () => {
     <section className="xl:mt-50 lg:mt-40 mt-32">
       <div className=" max-w-2xl">
         <TextTransition direction="down" springConfig={presets.gentle}>
-          <h1 className="xl:text-8xl lg:text-7xl md:text-6xl text-4xl  text-white font-extrabold">
+          <h1 className="xl:text-8xl lg:text-7xl md:text-6xl text-5xl  text-white font-extrabold">
             <span className=" text-gradient blockss">
               {headerText[index % headerText.length]}
             </span>

@@ -6,6 +6,12 @@ export const Navbar = () => {
         <a href="/">
           <img src="/leemaologo.png" alt="Nav" className="w-9/12" />
         </a>
+        <Link
+          to="/search"
+          className="hover:text-tertiary transition-colors duration-300 xl:hidden text-white"
+        >
+          Search
+        </Link>
         <div className="text-white [&>a]:mx-6 xl:block hidden">
           <Link
             to="/search"
