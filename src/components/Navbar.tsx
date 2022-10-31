@@ -7,10 +7,10 @@ export const Navbar = () => {
         </a>
         <div className="text-white [&>a]:mx-6 xl:block hidden">
           <a
-            href="/"
+            href="/search"
             className="hover:text-tertiary transition-colors duration-300"
           >
-            Shops
+            Search
           </a>
           <a
             href="/"

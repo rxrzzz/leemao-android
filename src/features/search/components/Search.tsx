@@ -64,10 +64,10 @@ export const Search = () => {
       <header className="bg-[#131613]">
         <nav className="flex justify-between py-4 px-12 items-center">
           <a href="/">
-            <img src="/leemaologo.png" alt="Home" width="120px" />
+            <img src="/leemaologo.png" alt="Home" className="md:w-[120px] w-[90px]"/>
           </a>
           <div
-            className=" flex items-center p-2 rounded-md
+            className=" flex items-center p-2 rounded-md min-w-[260px]
           bg-[#1E201E] pointer-events-none focus-within:bg-[#828482]"
           >
             <div
@@ -86,7 +86,7 @@ export const Search = () => {
 
           <button
             className="border border-primary py-2 px-6
-           rounded-md text-primary"
+           rounded-md text-primary hidden lg:block"
           >
             Create
           </button>
@@ -119,10 +119,13 @@ export const Search = () => {
                       <Fragment key={meme.url}>
                         <button
                           onClick={() => handleImageMenuOpen(index)}
-                          className="p-2"
+                          className="h-full w-full p-2"
+                          style={{height: `${meme.height}`, width: `${meme.width}`}}
                         >
                           <Image
                             alt={meme.tags[0]}
+                            height={meme.height}
+                            width={meme.width}
                             className="rounded-sm"
                             src={meme.url}
                           />
@@ -182,10 +185,13 @@ export const Search = () => {
                         <button
                           onClick={() => handleImageMenuOpen(index)}
                           className="h-full w-full p-2"
+                          style={{height: `${meme.height}`, width: `${meme.width}`}}
                         >
                           <Image
                             alt={meme.tags[0]}
                             className="rounded-md"
+                            height={meme.height}
+                            width={meme.width}
                             src={meme.url}
                           />
                         </button>

@@ -4,9 +4,11 @@ type ImageProps = {
   alt: string;
   className: string;
   src: string;
+  height?: string | number;
+  width?: string | number;
 };
 
-export const Image = ({ alt, className, src }: ImageProps) => {
+export const Image = ({ alt, className, src, height, width }: ImageProps) => {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
@@ -30,7 +32,7 @@ export const Image = ({ alt, className, src }: ImageProps) => {
     return (
       <div
         className="rounded-md shadow-sm shadow-slate-800 h-full
-       w-full flex flex-col justify-center items-center bg-[#131613] py-48"
+       w-full flex flex-col justify-center items-center bg-[#131613] py-8"
       >
         <img
           src="/errormoon.png"
@@ -48,8 +50,10 @@ export const Image = ({ alt, className, src }: ImageProps) => {
     <>
       <img
         alt={alt}
-        className={className}
+        className="rounded-md h-full w-full object-cover"
         src={src}
+        height={height}
+        width={width}
         onLoad={() => setIsLoading(false)}
         onError={() => setIsError(true)}
       />
