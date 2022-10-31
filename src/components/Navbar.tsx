@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 export const Navbar = () => {
   return (
     <header>
@@ -6,12 +7,12 @@ export const Navbar = () => {
           <img src="/leemaologo.png" alt="Nav" className="w-9/12" />
         </a>
         <div className="text-white [&>a]:mx-6 xl:block hidden">
-          <a
-            href="/search"
+          <Link
+            to="/search"
             className="hover:text-tertiary transition-colors duration-300"
           >
             Search
-          </a>
+          </Link>
           <a
             href="/"
             className="hover:text-tertiary transition-colors duration-300"
